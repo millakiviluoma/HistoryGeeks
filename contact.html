@@ -1,0 +1,218 @@
+<html>
+	<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>History geeks</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa|Handlee|Rock+Salt" rel="stylesheet">
+	
+	<link href="img/favicon.ico" rel="icon" type="image/x-icon">
+	<link href="css/w3.css" rel="stylesheet">
+	<script src="https://raw.github.com/caleb531/jcanvas/master/jcanvas.min.js"></script>
+	 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/oma.css">
+	<script type="text/javascript" src="js/oma.js"></script>
+	
+	</head>
+	<body>
+	
+	<nav class="w3-sidenav w3-sand w3-card-2 w3-animate-left" style="width:200px;font-family: 'Comfortaa', cursive;font-size:20px"">
+    <!-- w3-sidenav=määrittelee sivunavigoinnin, w3-white=taustaväri, w3-card-2=laation reunuksen, w3-animate-left=animaatio, kun laatikko tulee näkyviin/menee pois -->
+    
+	<!-- mobiilinäkymän navigoinnin sulkemispainike -->
+		<a href="javascript:void(0)" onclick="w3_close()" class="w3-closenav w3-large w3-hide-large">sulje ×</a>
+	<!-- kuvituskuva logo? --> 
+	<img src="img/farao.png" alt="" style="width:200; height:200;">
+		<a href="index.html"  class="w3-hover-green" style="color:black">Home</a>
+		<a href="centuries.html" class="w3-hover-green" style="color:black">Centuries</a>
+		<a href="religion.html" class="w3-hover-green" style="color:black">Religion</a>
+		<a href="#" class="w3-amber">About us</a>
+
+	<!-- kuvistukuvia ? -->
+	
+	<img src="img/keepcalm.jpg" alt="" style="width: 190; height: 190; padding-left:10px">
+		<br>
+		
+		 <br>
+           <a href="http://www.facebook.com" style="color:black"><i class="fa fa-facebook-official"></i> Facebook</a>
+         
+		   <a href="http://www.twitter.com" style="color:black"><i class="fa fa-twitter"></i> Twitter</a>
+         <br>
+	</nav>
+	
+<div class="w3-container w3-main w3-card-2" style="margin-left:200px" data-role="page">
+	
+	<header class="">
+
+	<!-- mobiilinäytölle navigoinnin avauspainike näkyviin -->
+	<span class="w3-opennav w3-xlarge w3-hide-large w3-card-2" onclick="w3_open()" style="">&nbsp;☰&nbsp;</span>
+
+	<br>
+	<!-- pääotsikko -->
+	<h1>
+	History geeks
+	</h1>
+	</header>
+		<canvas id="canvasOne" width="200" height="200">
+			Your browser does not support HTML 5 Canvas
+		</canvas>
+		
+		<table data-role="table" data-mode="columntoggle" class="ui-responsive" data-column-btn-text="Show all" id="myTable">
+      <thead>
+        <tr>
+      
+          <th data-priority="1">Name</th>
+          <th data-priority="2">Email</th>
+          <th data-priority="3">What I do</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+         
+          <td>May Jones</td>
+          <td>may@historygeeks.com</td>
+          <td>I review and edit pictures! I love historic paintings and love to retouch them.</td>
+        </tr>
+        <tr>
+          
+          <td>James McGill</td>
+          <td>james@historygeeks.com</td>
+          <td>I read submitted stories and do research.</td>
+          
+        </tr>
+		<tr>
+          
+          <td>Rainn Dooley</td>
+          <td>rainn@historygeeks.com</td>
+          <td>I manage the website and make sure all the info we use is okay to use. </td>
+          
+        </tr>
+      </tbody>
+    </table>
+	
+	<button id="btn" style="color: white; background-color: #FEB323; border: 2pt ridge #E58B20">Submit story!</button>
+		
+		<form id="yhteydenotto" style="padding-left:10px;">
+		<h2>Submit form</h2>
+		Your name: <br><input type="text" name="nimi" oninvalid="this.setCustomValidity('The name is required')" required><br>
+		Email: <br><input type="email" name="sposti" oninvalid="this.setCustomValidity('Correct email address is required, we will only use it to contact you about your submission')" required><br>
+		Write the story here and leave links for the sources:<br><textarea name="viesti" rows="10" cols="30"></textarea> 
+		<br>
+		<input type="submit" value="Submit" onclick="alert('Thank you for the submission! \nPress OK')">
+		</form>
+
+		<footer style="text-align:center"> feedback@historygeeks.com </footer>
+	</div>
+	
+	</body>
+	
+	<script>
+	
+	   function w3_open() {
+       document.getElementsByClassName("w3-sidenav")[0].style.display = "block";
+    }
+    function w3_close() {
+        document.getElementsByClassName("w3-sidenav")[0].style.display = "none";
+    }
+	
+	$("#yhteydenotto").hide();
+	
+	var i=0;
+	$("#btn").on('click', function formFunc() {
+		
+		$("#yhteydenotto").toggle('slow');
+		if(i++ % 2 == 0) {
+			$("#btn").text("Close submit form");
+		}
+		else{
+			$("#btn").text("Show submit form");
+		}
+	});
+	
+	var mw = w=window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+	
+var gs1 = 0
+var gs2 = 1/5
+var gs3 = 2/5
+var gs4 = 3/5
+var gs5 = 4/5
+var gs6 = 1
+	
+	var theCanvas = document.getElementById("canvasOne");
+	var context = theCanvas.getContext("2d"); 
+theCanvas.setAttribute('width', "1125");
+theCanvas.setAttribute('height', "100");
+canvasApp();
+
+function canvasApp() {
+	
+	var message = "Submit stories and historic events we should add!";
+	
+	function drawScreen() {
+		//Background
+		
+		//context.fillStyle = "rgba(0, 0, 0, 0.2)";
+		//context.fillRect(0, 0, theCanvas.width, theCanvas.height);
+		//Text
+		
+		context.font = 1125/3 + "% 'Calibri, Ariel'" 
+		context.textAlign = "center";
+		context.textBaseline = "middle";
+		
+		var metrics = context.measureText(message);
+		var textWidth = metrics.width;
+		var xPosition = (theCanvas.width/2);
+		var yPosition = (theCanvas.height/2);
+        //x1: 0, y1: 0,
+ // x2: 100, y2: 0,
+		
+		var gradient = context.createLinearGradient( 0,0,1125,0);
+		for (var i=0; i < colorStops.length; i++) {
+			var tempColorStop = colorStops[i];
+			var tempColor = tempColorStop.color;
+			var tempStopPercent = tempColorStop.stopPercent;
+			gradient.addColorStop(tempStopPercent,tempColor);
+			tempStopPercent += .015;
+			if (tempStopPercent > 1) {
+				tempStopPercent = 0;
+			}
+			tempColorStop.stopPercent = tempStopPercent;;
+			colorStops[i] = tempColorStop;
+		}
+		
+		
+		context.fillStyle    = gradient;
+		context.fillText  ( message,  xPosition ,yPosition);	
+	
+	
+	}
+	
+	function gameLoop() {
+		window.setTimeout(gameLoop, 20);
+		drawScreen()	
+	}
+	var colorStops = new Array(
+	{color:"#FFB424", stopPercent:gs1},
+	{color:"#E88D20", stopPercent:gs2},
+	{color:"#FF8230", stopPercent:gs3},
+	{color:"#E85320", stopPercent:gs4},
+	{color:"#FF3B24", stopPercent:gs5},
+	{color:"#FF0000", stopPercent:gs6});
+	gameLoop();
+
+	
+}
+	</script>
+</html>
+	
